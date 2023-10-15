@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Summer I Turned Pretty quiz</title>
+    <style> 
+        body {text-align: center;}
+        body{text-align: center; background-image: url(runningtothewater.png); padding: 5cm;}
+        h1 {border: 8px solid black;background-color: white;padding: 6px;font-family: Georgia, 'Times New Roman', Times, serif };
+        h3 {border: 8px solid black;background-color: white;padding: 6px;font-family: 'Times New Roman', Times, serif};
+        h2#optionsSpace { color: aqua;}
+
+
+
+    </style>
+</head>
+
+<body>
+   
+    <h1 id="questionSpace"> </h1>
+    <h2 id="optionsSpace"> </h2>
+    <input id="userInput">
+    <button onclick="submit()"> Submit </button>
+    <h3 id="message"> </h3>
+    
+    <script> 
+
+        //Variables to store specific elements from the HTML, defines the section of code so we can identify it later.
+        var questionSpace = document.getElementById("questionSpace");
+        var optionsSpace = document.getElementById("optionsSpace");
+        var userInput = document.getElementById("userInput");
+        var message = document.getElementById("message");
+        var displayScore = document.getElementById("displayScore");
+
+    // A array that holds all of the quiz questions, and the different choices and answers. I have 10 questions. Infront of all the
+    // questions I have number them to keep trak of them easier. All of the question have choices and and answer that goes with it.
+        var quizQuestions = [
+            { question: " 1. what is the name of bellys best friend",
+            choices:["Tink"," Taylor"," Nicole", " Shayla"],
+              answer: "taylor"
+            } ,
+            { question: "2. What are the names of the two brothers?",
+            choices:[ "Conrad and Jeremiah", " Steven and Conrad", " Steven and Jeremiah"],
+             answer: "Conrad and Jeremiah "
+             },
+            { question: "3. How old is Steven?",
+            choices:[" 17"," 21"," 18"," 19"],
+              answer: "18"
+            },
+            { question: "4. Where is the beach house?",
+              choices:[" Nahant", " Phillips","Cousins"],
+              answer: "Cousins"
+            },
+            { question: "5. Who is Nicole?",
+            choices:["Conrad's Sister"," Conrads Girlfriend", " Just a friend"],
+              answer: "Conrad's Girlfriend"
+            },
+            { question: "6. What is the cause of Susana's death?",
+            choices:["Car Accident", " tuberculosis"," Cancer"," Swine Flu"],
+              answer: "Cancer"
+            },
+            { question: "7. True or false Conrad and Jeremiah live in cousins",
+            choices: ["True", " False"],
+              answer: "False"
+            },
+            { question: "8. True or false, Jeremiah dates Belly before Conrad does.",
+            choices: ["True", " False"],
+              answer: "True"
+            },
+            { question: "9. What is Susana's maiden name? ",
+            choices:["Fisher"," Beck"," Brew"," Colins"],
+              answer: "Beck"
+            },
+            { question: "10. What sport does belly play?",
+            choices:["Soccer", " Basketball", " Volleyball"],
+              answer: "Volleyball"
+            },
+            {
+                question:"You have answered all of the Questions",
+                choices:["Congrats!!!"]
+            }
+            
+                            ];
+        var questionState = 0;
+        var score = 0;
+        //This code below is what changes the question and choices as in the question nd iotion space it will put the quiz question
+        // and choice acording to the question state.
+        questionSpace.innerHTML = quizQuestions[questionState]['question'];
+        optionsSpace.innerHTML = quizQuestions[questionState]['choices'];
+       
+          //Submit code, when the user presses on the button 'submit' and their answer = the answer from the
+           //questionstate the code plays and it will changes the question to the next.
+           function submit() {
+            if(userInput.value == quizQuestions[questionState]['answer'] ) {
+                score++;
+                update()
+            } else {
+                update()
+            }
+           
+        }
+
+        //Function that holds all the submit code, so we dont have to repeat code we can just call this function.
+        function update() {
+            questionState++;
+                questionSpace.innerHTML = quizQuestions[questionState]['question'];
+                optionsSpace.innerHTML = quizQuestions[questionState]['choices'];
+                userInput.value = ""; // This Clears the previous answer
+            
+            if(questionState == 10) {
+                if(score == 10) {
+                    message.innerHTML = "Great job you watched the summer I turned pretty to much. Your Scroe is " + score;
+                 }
+                 else {
+                    message.innerHTML = "Obviously you didn't pay attention. Your Score is " + score;}
+            }
+
+
+        }
+             //this function will play if the user has answered all questions and tells the user how they did on the quiz. 
+        
+           
+         
+        
+    </script>
+
+</body>
+</html>
