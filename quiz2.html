@@ -39,7 +39,7 @@
         var quizQuestions = [
             { question: " 1. what is the name of bellys best friend",
             choices:["Tink"," Taylor"," Nicole", " Shayla"],
-              answer: "taylor"
+              answer: "Taylor"
             } ,
             { question: "2. What are the names of the two brothers?",
             choices:[ "Conrad and Jeremiah", " Steven and Conrad", " Steven and Jeremiah"],
@@ -50,11 +50,11 @@
               answer: "18"
             },
             { question: "4. Where is the beach house?",
-              choices:[" Nahant", " Phillips","Cousins"],
+              choices:[" Nahant", " Phillips"," Cousins"],
               answer: "Cousins"
             },
             { question: "5. Who is Nicole?",
-            choices:["Conrad's Sister"," Conrads Girlfriend", " Just a friend"],
+            choices:["Conrad's Sister"," Conrad's Girlfriend", " Just a friend"],
               answer: "Conrad's Girlfriend"
             },
             { question: "6. What is the cause of Susana's death?",
@@ -108,7 +108,8 @@
                 questionSpace.innerHTML = quizQuestions[questionState]['question'];
                 optionsSpace.innerHTML = quizQuestions[questionState]['choices'];
                 userInput.value = ""; // This Clears the previous answer
-            
+            //this if, if and else statement will only play if the first condition is meet meaning it will only play once the
+            //user has answered all of the questions in the quiz. 
             if(questionState == 10) {
                 if(score == 10) {
                     message.innerHTML = "Great job you watched the summer I turned pretty to much. Your Scroe is " + score;
@@ -119,7 +120,7 @@
 
 
         }
-             //this function will play if the user has answered all questions and tells the user how they did on the quiz. 
+         
         
            
          
